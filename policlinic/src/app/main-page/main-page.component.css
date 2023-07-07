@@ -1,0 +1,21 @@
+h5 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 300%;
+    color: white;
+}
+
+h2 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 100%;
+    color: white;
+    font-weight: 100;
+}
+
+div.ctr {
+    text-align: center;
+}
+
+button {
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: bold;
+}

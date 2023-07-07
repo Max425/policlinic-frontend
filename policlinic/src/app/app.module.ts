@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
@@ -22,9 +21,17 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 
+import { AppComponent } from './app.component';
+import { VerificationComponent } from './verification/verification.component';
+import { MainPageComponent } from './main-page/main-page.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    VerificationComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
