@@ -28,7 +28,6 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { OpPageComponent } from './pages/op-page/op-page.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
