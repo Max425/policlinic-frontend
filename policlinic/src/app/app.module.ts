@@ -26,6 +26,7 @@ import { AppComponent } from './app.component';
 import { VerificationComponent } from './pages/verification/verification.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { OpPageComponent } from './pages/op-page/op-page.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { OpPageComponent } from './pages/op-page/op-page.component';
     VerificationComponent,
     MainPageComponent,
     OpPageComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
