@@ -23,9 +23,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
-import { VerificationComponent } from './verification/verification.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { OpPageComponent } from './op-page/op-page.component';
+import { VerificationComponent } from './pages/verification/verification.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { OpPageComponent } from './pages/op-page/op-page.component';
 
 
 
