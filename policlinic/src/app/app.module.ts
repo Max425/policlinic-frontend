@@ -27,6 +27,7 @@ import { VerificationComponent } from './pages/verification/verification.compone
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { OpPageComponent } from './pages/op-page/op-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { TablePaginationComponent } from './components/table-pagination/table-pagination.component';
 
 
 @NgModule({
@@ -59,6 +60,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     MatSidenavModule,
     MatTableModule,
     MatTabsModule,
+    TablePaginationComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
