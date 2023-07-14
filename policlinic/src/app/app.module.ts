@@ -37,6 +37,7 @@ import { TablePaginationComponent } from './components/table-pagination/table-pa
     MainPageComponent,
     OpPageComponent,
     NavigationComponent,
+    TablePaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +61,6 @@ import { TablePaginationComponent } from './components/table-pagination/table-pa
     MatSidenavModule,
     MatTableModule,
     MatTabsModule,
-    TablePaginationComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
