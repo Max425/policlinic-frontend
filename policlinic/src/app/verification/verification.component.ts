@@ -1,22 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-verification',
   templateUrl: './verification.component.html',
-  styleUrls: ['./verification.component.css']
+  styleUrls: ['./verification.component.css'],
+  //standalone: true,
+  //imports: [MatFormFieldModule, MatInputModule, MatIconModule],
 })
-export class VerificationComponent implements OnInit {
-  @Output() addEvent = new EventEmitter();
-
+export class VerificationComponent {
   
-
-  constructor() {}
-
-  ngOnInit(): void {
-    
-  }
-
-  onAdd() {
-    this.addEvent.emit();
-  }
 }
+
+
+

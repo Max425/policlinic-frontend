@@ -20,10 +20,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { VerificationComponent } from './verification/verification.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { OpPageComponent } from './op-page/op-page.component';
 
 
 
@@ -32,6 +34,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     AppComponent,
     VerificationComponent,
     MainPageComponent,
+    OpPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatTableModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

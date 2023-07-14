@@ -15,7 +15,12 @@ div.ctr {
     text-align: center;
 }
 
+div.enter {
+    text-align: right;
+}
+
 button {
     font-family: 'Gill Sans', sans-serif;
     font-weight: bold;
 }
+
