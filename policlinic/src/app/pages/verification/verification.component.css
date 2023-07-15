@@ -1,20 +1,20 @@
 h5 {
     font-family: 'Gill Sans', sans-serif;
     font-size: 300%;
-    color: white;
+    color: black;
 }
 
 h3 {
     font-family: 'Gill Sans', sans-serif;
     font-size: 200%;
-    color: white;
+    color: black;
     font-weight: 100;
 }
 
 div.ver {
-    background-color: rgba(235, 232, 240, 0.397);
+    background-color: rgba(235, 232, 240, 2.997);
     margin-left: 30%;
-    margin-right: 30%; 
+    margin-right: 30%;
     padding: 1%;
     text-align: center;
     border-radius: 0 10px;

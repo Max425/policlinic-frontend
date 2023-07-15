@@ -27,7 +27,8 @@ import { VerificationComponent } from './pages/verification/verification.compone
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { OpPageComponent } from './pages/op-page/op-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { TablePaginationComponent } from './components/table-pagination/table-pagination.component';
+import { VisitorComponent } from './components/visitor/visitor.component';
+import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TablePaginationComponent } from './components/table-pagination/table-pa
     MainPageComponent,
     OpPageComponent,
     NavigationComponent,
-    TablePaginationComponent,
+    VisitorComponent,
+    FilterVisitorsPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,55 +1,6 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {IVisitor} from "../models/visitor";
 
-@Component({
-  selector: 'app-table-pagination',
-  templateUrl: './table-pagination.component.html',
-  styleUrls: ['./table-pagination.component.css'],
-})
-export class TablePaginationComponent implements AfterViewInit {
-  displayedColumns: string[] = [
-    'Id',
-    'FirstName',
-    'LastName',
-    'FatherName',
-    'City',
-    'Gender',
-    'BirthDate',
-    'Nationality',
-    'PassportSeries',
-    'PassportNumber',
-    'DateIssue',
-    'Edit',
-  ];
-  dataSource = new MatTableDataSource<Visitor>(ELEMENT_DATA);
-  editIconPath = 'assets/edit.png';
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-}
-
-
-export interface Visitor {
-  Id: number;
-  FirstName: string;
-  LastName: string;
-  FatherName: string;
-  City: string;
-  Gender: string;
-  BirthDate: string;
-  Nationality: string;
-  PassportSeries: number;
-  PassportNumber: number;
-  PhotoBase64: string;
-  DateIssue: string;
-}
-
-
-const ELEMENT_DATA: Visitor[] = [
+export const visitors: IVisitor[] = [
   {
     Id: 1,
     FirstName: 'John',
@@ -191,4 +142,3 @@ const ELEMENT_DATA: Visitor[] = [
     DateIssue: '2022-11-30',
   },
 ];
-

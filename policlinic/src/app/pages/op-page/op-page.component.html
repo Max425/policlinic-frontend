@@ -1,2 +1,19 @@
 <app-navigation></app-navigation>
-<app-table-pagination></app-table-pagination>
+<div class="max-w-8xl container mx-auto pt-5 mt-[15px]">
+  <h1 class="mt-16 font-bold mb-2 text-center text-lg">{{ title | titlecase }}</h1>
+  <input
+    type="text"
+    class="mb-2 border py-2 px-4 w-full"
+    placeholder="Filter visitors..."
+    [(ngModel)]="term"
+  >
+
+  <p *ngIf="loading" class="text-center text-lg">Loading...</p>
+
+  <div> <!--*ngIf="dbService.visitors"-->
+    <app-visitor
+      *ngFor="let product of visitors | filterVisitors:term; let i = index"
+      [visitor]="product"
+    ></app-visitor>
+  </div>
+</div>

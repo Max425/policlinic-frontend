@@ -1,12 +1,13 @@
-<div class="top">
-  <button mat-raised-button>Все клиенты</button>
-  <!-- <mat-icon class="r" matBadge="15" matBadgeColor="warn">notifications_none</mat-icon> -->
-  <div class="r">
+<nav class="absolute top-0 right-0 px-5 left-0 h-[50px] flex justify-between items-center text-white bg-gray-500">
+  <h1 class="font-bold">DS Polyclinic</h1>
+
+  <span>
+    <a routerLink="/about" class="mr-2">Уведомления</a>
+    <button mat-raised-button class="mr-2">Все клиенты</button>
     <button mat-raised-button [matMenuTriggerFor]="menu">Имя оператора</button>
     <mat-menu #menu="matMenu">
       <button mat-button>Личный кабинет</button><br>
-      <button mat-button>Уведомления</button><br>
       <button mat-button>Выйти</button>
     </mat-menu>
-  </div>
-</div>
+  </span>
+</nav>
