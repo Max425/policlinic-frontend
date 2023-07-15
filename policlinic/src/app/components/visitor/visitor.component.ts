@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IVisitor} from "../../models/visitor";
+import {InteractionsWithDbApiService} from "../../api/swagger/services/interactions-with-db-api.service";
 
 @Component({
   selector: 'app-visitor',
@@ -9,6 +10,11 @@ import {IVisitor} from "../../models/visitor";
 export class VisitorComponent implements OnInit {
   @Input() visitor: IVisitor
   details = false
-  ngOnInit(): void {
+
+  // constructor(public dbService: InteractionsWithDbApiService) {}
+  ngOnInit(): void { // запрос делать если details = true а не при инициализации
+    // this.dbService.interactionsWithDbGetRecordGet$Response().subscribe(() => {
+    //   this.loading = false
+    // })
   }
 }
