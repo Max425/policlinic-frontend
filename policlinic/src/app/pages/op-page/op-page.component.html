@@ -12,8 +12,8 @@
 
   <div> <!--*ngIf="dbService.visitors"-->
     <app-visitor
-      *ngFor="let product of visitors | filterVisitors:term; let i = index"
-      [visitor]="product"
+      *ngFor="let visitor of visitors | filterVisitors:term; let i = index"
+      [visitor]="visitor"
     ></app-visitor>
   </div>
 </div>

@@ -3,4 +3,5 @@ export interface IOperator {
   FirstName: string;
   LastName: string;
   FatherName: string;
+  OperatorId: number;
 }

@@ -30,8 +30,10 @@
   </div>
   <div *ngIf="details">
     <div class="flex items-center flex-col mb-2">
-      <p>{{ visitor.Nationality }}</p>
-      <p>Rate: <span [ngStyle]="{ fontWeight: 'bold' }">{{ visitor.City }}</span></p>
+      <app-record
+        *ngFor="let record of records; let i = index"
+        [record]="record"
+      ></app-record>
     </div>
   </div>
 </div>

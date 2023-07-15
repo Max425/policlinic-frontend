@@ -29,6 +29,7 @@ import { OpPageComponent } from './pages/op-page/op-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { VisitorComponent } from './components/visitor/visitor.component';
 import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
+import { RecordComponent } from './components/record/record.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
     NavigationComponent,
     VisitorComponent,
     FilterVisitorsPipe,
+    RecordComponent,
   ],
   imports: [
     BrowserModule,
