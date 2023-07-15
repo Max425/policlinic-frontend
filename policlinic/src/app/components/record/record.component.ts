@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {IRecord} from "../../models/record";
+import {ISurvey} from "../../models/survey";
+import {surveys} from "../../data/surveys";
 
 @Component({
   selector: 'app-record',
@@ -8,4 +10,5 @@ import {IRecord} from "../../models/record";
 })
 export class RecordComponent {
   @Input() record: IRecord
+  survey: ISurvey = surveys[0]
 }
