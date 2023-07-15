@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IVisitor} from "../../models/visitor";
 
 @Component({
@@ -6,6 +6,9 @@ import {IVisitor} from "../../models/visitor";
   templateUrl: './visitor.component.html',
   styleUrls: ['./visitor.component.css']
 })
-export class VisitorComponent {
+export class VisitorComponent implements OnInit {
   @Input() visitor: IVisitor
+  details = false
+  ngOnInit(): void {
+  }
 }

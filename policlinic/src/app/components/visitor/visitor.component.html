@@ -1,23 +1,37 @@
-<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
-  <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6 mb-2">
-  <h2 class="mb-2 text-md text-center">{{'ФИО: ' +  visitor.LastName + ' ' +  visitor.FatherName + ' ' + visitor.FatherName }}</h2>
-  <p>City: <span class="font-bold">{{ visitor.City }}</span></p>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-4 px-6 border rounded">
+  <div class="py-4 px-6 flex items-center flex-col mb-2">
+    <div class="mb-2">
+      <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+    </div>
 
-<!--  <button-->
-<!--    class="border py-2 px-4 rounded"-->
-<!--    [ngClass]="{-->
-<!--      'bg-yellow-400': !details,-->
-<!--      'bg-blue-400': details-->
-<!--    }"-->
-<!--    (click)="details = !details"-->
-<!--  >-->
-<!--    {{ details ? 'Hide' : 'Show' }} Details-->
-<!--  </button>-->
+  </div>
 
-<!--  <div *ngIf="details">-->
-<!--    <p>{{ product.description }}</p>-->
-<!--    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">-->
-<!--      {{ product.rating.rate | number:'1.2-4' }}-->
-<!--    </span></p>-->
-<!--  </div>-->
+  <div class="py-4 px-6 flex flex-col mb-2">
+    <p>ФИО: {{visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
+    <p>Пол: {{ visitor.Gender }}</p>
+    <p>Место рождения: {{ visitor.City }}</p>
+    <p>Дата рождения: {{ visitor.BirthDate }}</p>
+    <p>Национальность: {{ visitor.Nationality }}</p>
+    <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
+    <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
+  </div>
+
+  <div class="py-4 px-6 flex items-center flex-col mb-2">
+    <div class="mt-4">
+      <button
+        class="py-2 px-4"
+        [class.bg-yellow-400]="!details"
+        [class.bg-blue-400]="details"
+        (click)="details = !details"
+      >
+        {{ details ? 'Скрыть' : 'Показать' }} записи
+      </button>
+    </div>
+  </div>
+  <div *ngIf="details">
+    <div class="flex items-center flex-col mb-2">
+      <p>{{ visitor.Nationality }}</p>
+      <p>Rate: <span [ngStyle]="{ fontWeight: 'bold' }">{{ visitor.City }}</span></p>
+    </div>
+  </div>
 </div>
