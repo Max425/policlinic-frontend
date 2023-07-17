@@ -2,8 +2,8 @@
   <h1 class="font-bold">DS Polyclinic</h1>
 
   <span>
-    <a routerLink="/about" class="mr-2">Уведомления</a>
-    <button mat-raised-button class="mr-2">Все клиенты</button>
+    <a routerLink="/notifications" class="mr-2">Уведомления</a>
+    <button mat-raised-button class="mr-2" routerLink="/operator">Все клиенты</button>
     <button mat-raised-button [matMenuTriggerFor]="menu">Имя оператора</button>
     <mat-menu #menu="matMenu">
       <button mat-button>Личный кабинет</button><br>

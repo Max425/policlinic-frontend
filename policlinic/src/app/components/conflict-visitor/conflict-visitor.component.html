@@ -1,0 +1,63 @@
+<div class="py-4 px-6 border rounded">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="py-4 px-6 flex items-center flex-col mb-2">
+        <div class="mb-2">
+          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+        </div>
+      </div>
+      <ng-container>
+        <div class="py-4 px-6 flex flex-col mb-2">
+          <p>ФИО: {{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
+          <p>Пол: {{ visitor.Gender }}</p>
+          <p>Место рождения: {{ visitor.City }}</p>
+          <p>Дата рождения: {{ visitor.BirthDate }}</p>
+          <p>Национальность: {{ visitor.Nationality }}</p>
+          <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
+          <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
+        </div>
+      </ng-container>
+      <div class="py-4 px-6 flex items-center flex-col mb-2">
+        <button
+            class="py-2 px-4 mb-1.5"
+            [class.bg-yellow-400]="!create"
+            [class.bg-blue-400]="create"
+            (click)="create = !create">
+          {{ create ? 'Отменить' : 'Создать карточку' }}
+        </button>
+        <button
+            class="py-2 px-4 mb-1.5"
+            [class.bg-yellow-400]="!redactor"
+            [class.bg-blue-400]="redactor"
+            (click)="redactor = !redactor">
+            {{ redactor ? 'Отменить' : 'Всё верно' }}
+        </button>
+        <button
+            class="py-2 px-4"
+            [class.bg-yellow-400]="!del"
+            [class.bg-blue-400]="del"
+            (click)="del = !del">
+            {{ del ? 'Отменить' : 'Удалить запрос' }}
+        </button>
+      </div>
+    </div>
+    <h1 class="mb-2 text-center text-lg">Предполагаемый клиент</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="py-4 px-6 flex items-center flex-col mb-2">
+        <div class="mb-2">
+          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+        </div>
+      </div>
+      <ng-container>
+        <div class="py-4 px-6 flex flex-col mb-2">
+          <p>ФИО: {{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
+          <p>Пол: {{ visitor.Gender }}</p>
+          <p>Место рождения: {{ visitor.City }}</p>
+          <p>Дата рождения: {{ visitor.BirthDate }}</p>
+          <p>Национальность: {{ visitor.Nationality }}</p>
+          <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
+          <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
+        </div>
+      </ng-container>
+    </div>
+</div>
+  
