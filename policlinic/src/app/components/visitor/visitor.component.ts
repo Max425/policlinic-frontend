@@ -15,7 +15,7 @@ export class VisitorComponent implements OnInit {
   redactor = false
   records: IRecord[] = data
 
-  constructor(public dbService: InteractionsWithDbApiService) {}
+  // constructor(public dbService: InteractionsWithDbApiService) {}
   ngOnInit(): void { // запрос делать если details = true а не при инициализации
     // this.dbService.interactionsWithDbGetRecordGet$Response().subscribe(() => {
     //   this.loading = false
