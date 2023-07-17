@@ -30,7 +30,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { VisitorComponent } from './components/visitor/visitor.component';
 import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
 import { RecordComponent } from './components/record/record.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import { RecordComponent } from './components/record/record.component';
     MatSidenavModule,
     MatTableModule,
     MatTabsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
