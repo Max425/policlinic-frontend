@@ -2,10 +2,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div class="py-4 px-6 flex items-center flex-col mb-2">
         <div class="mb-2">
-          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id">
         </div>
       </div>
-      <ng-container>
+      <ng-container *ngIf="!create; else formContent">
         <div class="py-4 px-6 flex flex-col mb-2">
           <p>ФИО: {{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
           <p>Пол: {{ visitor.Gender }}</p>
@@ -16,6 +16,38 @@
           <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
         </div>
       </ng-container>
+      <ng-template #formContent>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>ФИО</mat-label>
+            <input matInput value="{{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Пол</mat-label>
+            <input matInput value="{{ visitor.Gender }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Место рождения</mat-label>
+            <input matInput value="{{ visitor.City }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Дата рождения</mat-label>
+            <input matInput value="{{ visitor.BirthDate }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Национальность</mat-label>
+            <input matInput value="{{ visitor.Nationality }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Серия и номер паспорта</mat-label>
+            <input matInput value="{{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Дата выдачи паспорта</mat-label>
+            <input matInput value="{{ visitor.DateIssue }}">
+          </mat-form-field>
+        </form>
+      </ng-template>
       <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
         <button
             class="py-2 px-4 mb-1.5"
@@ -24,27 +56,35 @@
             (click)="create = !create">
           {{ create ? 'Отменить' : 'Создать карточку' }}
         </button>
-        <button
+        <button *ngIf="!create"
             class="py-2 px-4 mb-1.5"
             [class.bg-yellow-400]="!redactor"
             [class.bg-blue-400]="redactor"
             (click)="redactor = !redactor">
-            {{ redactor ? 'Отменить' : 'Всё верно' }}
+            Всё верно
         </button>
-        <button
+        <button *ngIf="!create"
+            class="py-2 px-4 mb-1.5"
+            [class.bg-yellow-400]="!del"
+            [class.bg-blue-400]="del"
+            (click)="del = !del">
+            Удалить запрос
+        </button>
+        <button *ngIf="create"
             class="py-2 px-4"
             [class.bg-yellow-400]="!del"
             [class.bg-blue-400]="del"
             (click)="del = !del">
-            {{ del ? 'Отменить' : 'Удалить запрос' }}
+            Сохранить карточку
         </button>
       </div>
     </div>
+  <div *ngIf="!create">
     <h1 class="mb-2 text-center text-lg">Предполагаемый клиент</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div class="py-4 px-6 flex items-center flex-col mb-2">
         <div class="mb-2">
-          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+          <img [src]="visitor.PhotoBase64" [alt]="visitor.Id">
         </div>
       </div>
       <ng-container>
@@ -59,4 +99,5 @@
         </div>
       </ng-container>
     </div>
+  </div>
 </div>

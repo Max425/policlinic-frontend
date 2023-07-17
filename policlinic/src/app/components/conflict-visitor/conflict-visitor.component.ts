@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IVisitor} from "../../models/visitor";
-import { records as data } from '../../data/records'
-import {IRecord} from "../../models/record";
 
 @Component({
   selector: 'app-conflict-visitor',
