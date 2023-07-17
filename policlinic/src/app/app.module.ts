@@ -30,6 +30,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { VisitorComponent } from './components/visitor/visitor.component';
 import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
 import { RecordComponent } from './components/record/record.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -42,8 +44,11 @@ import { HttpClientModule } from '@angular/common/http';
     VisitorComponent,
     FilterVisitorsPipe,
     RecordComponent,
+    NotificationsComponent,
+    ConflictVisitorComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -65,7 +70,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatTableModule,
     MatTabsModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
