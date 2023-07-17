@@ -12,12 +12,16 @@ import {InteractionsWithDbApiService} from "../../api/swagger/services/interacti
 export class VisitorComponent implements OnInit {
   @Input() visitor: IVisitor
   details = false
+  redactor = false
   records: IRecord[] = data
 
-  // constructor(public dbService: InteractionsWithDbApiService) {}
+  constructor(public dbService: InteractionsWithDbApiService) {}
   ngOnInit(): void { // запрос делать если details = true а не при инициализации
     // this.dbService.interactionsWithDbGetRecordGet$Response().subscribe(() => {
     //   this.loading = false
     // })
+  }
+  save(): void {
+
   }
 }
