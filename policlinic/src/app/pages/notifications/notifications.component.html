@@ -7,13 +7,19 @@
       placeholder="Filter visitors..."
       [(ngModel)]="term"
     >
-  
+
     <p *ngIf="loading" class="text-center text-lg">Loading...</p>
-  
+
     <div> <!--*ngIf="dbService.visitors"-->
       <app-conflict-visitor
-        *ngFor="let visitor of visitors | filterVisitors:term; let i = index"
+        *ngFor="let visitor of pageSlice | filterVisitors:term; let i = index"
         [visitor]="visitor"
       ></app-conflict-visitor>
     </div>
+  <mat-paginator [length] = "this.visitors.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 showFirstLastButtons
+                 (page)="onPageChange($event)">
+  </mat-paginator>
   </div>
