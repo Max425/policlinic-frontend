@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <div class="py-4 px-6 flex items-center flex-col mb-2">
       <div class="mb-2">
-        <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+        <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="">
       </div>
 
     </div>
@@ -49,24 +49,28 @@
         </mat-form-field>
       </form>
     </ng-template>
-    <div class="py-4 px-6 flex items-center flex-col mb-2">
-        <button
-          class="py-2 px-4 mb-1.5"
-          [class.bg-yellow-400]="!details"
-          [class.bg-blue-400]="details"
-          (click)="details = !details"
-        >
-          {{ details ? 'Скрыть' : 'Показать' }} записи
-        </button>
+    <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
       <button
-          class="py-2 px-4"
-          [class.bg-yellow-400]="!redactor"
-          [class.bg-blue-400]="redactor"
-          (click)="redactor = !redactor"
-        >
-          {{ redactor ? 'Отменить' : 'Редактировать' }}
-        </button>
+        class="py-2 px-4 mb-1.5"
+        [class.bg-yellow-400]="!details"
+        [class.bg-blue-400]="details"
+        (click)="details = !details"
+      >
+        {{ details ? 'Скрыть' : 'Показать' }} записи
+      </button>
+      <button
+        class="py-2 px-4 mb-2"
+        [class.bg-yellow-400]="!redactor"
+        [class.bg-blue-400]="redactor"
+        (click)="redactor = !redactor"
+      >
+        {{ redactor ? 'Отменить' : 'Редактировать' }}
+      </button>
+      <button *ngIf="redactor" class="py-2 px-4 bg-yellow-400" (click)="save()">
+        Сохранить
+      </button>
     </div>
+
   </div>
   <div *ngIf="details">
     <div class="flex flex-col mb-2">

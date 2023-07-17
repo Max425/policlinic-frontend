@@ -23,6 +23,7 @@ export class VisitorComponent implements OnInit {
   }
 
   save(): void {
-
+    console.log("save")
+    this.dbService.interactionsWithDbCreateVisitorPost$Response()
   }
 }
