@@ -1,35 +1,37 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-4 px-6 border rounded">
-  <div class="py-4 px-6 flex items-center flex-col mb-2">
-    <div class="mb-2">
-      <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+<div class="py-4 px-6 border rounded">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="py-4 px-6 flex items-center flex-col mb-2">
+      <div class="mb-2">
+        <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="w-1/6">
+      </div>
+
     </div>
 
-  </div>
+    <div class="py-4 px-6 flex flex-col mb-2">
+      <p>ФИО: {{visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
+      <p>Пол: {{ visitor.Gender }}</p>
+      <p>Место рождения: {{ visitor.City }}</p>
+      <p>Дата рождения: {{ visitor.BirthDate }}</p>
+      <p>Национальность: {{ visitor.Nationality }}</p>
+      <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
+      <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
+    </div>
 
-  <div class="py-4 px-6 flex flex-col mb-2">
-    <p>ФИО: {{visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
-    <p>Пол: {{ visitor.Gender }}</p>
-    <p>Место рождения: {{ visitor.City }}</p>
-    <p>Дата рождения: {{ visitor.BirthDate }}</p>
-    <p>Национальность: {{ visitor.Nationality }}</p>
-    <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
-    <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
-  </div>
-
-  <div class="py-4 px-6 flex items-center flex-col mb-2">
-    <div class="mt-4">
-      <button
-        class="py-2 px-4"
-        [class.bg-yellow-400]="!details"
-        [class.bg-blue-400]="details"
-        (click)="details = !details"
-      >
-        {{ details ? 'Скрыть' : 'Показать' }} записи
-      </button>
+    <div class="py-4 px-6 flex items-center flex-col mb-2">
+      <div class="mt-4">
+        <button
+          class="py-2 px-4"
+          [class.bg-yellow-400]="!details"
+          [class.bg-blue-400]="details"
+          (click)="details = !details"
+        >
+          {{ details ? 'Скрыть' : 'Показать' }} записи
+        </button>
+      </div>
     </div>
   </div>
   <div *ngIf="details">
-    <div class="flex items-center flex-col mb-2">
+    <div class="flex flex-col mb-2">
       <app-record
         *ngFor="let record of records; let i = index"
         [record]="record"
