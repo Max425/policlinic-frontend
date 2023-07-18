@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: VerificationComponent },
   { path: 'operator', component: OpPageComponent },
-  { path: 'notifications', component: NotificationsComponent}
+  { path: 'notifications', component: NotificationsComponent},
+  { path: 'exit', component: VerificationComponent}
 ];
 
 @NgModule({

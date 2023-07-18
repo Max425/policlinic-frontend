@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     FilterVisitorsPipe,
     RecordComponent,
     NotificationsComponent,
-    ConflictVisitorComponent
+    ConflictVisitorComponent,
   ],
   imports: [
     HttpClientModule,
