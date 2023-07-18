@@ -20,20 +20,35 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
-import { VerificationComponent } from './verification/verification.component';
-import { MainPageComponent } from './main-page/main-page.component';
-
-
+import { VerificationComponent } from './pages/verification/verification.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { OpPageComponent } from './pages/op-page/op-page.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { VisitorComponent } from './components/visitor/visitor.component';
+import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
+import { RecordComponent } from './components/record/record.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     VerificationComponent,
     MainPageComponent,
+    OpPageComponent,
+    NavigationComponent,
+    VisitorComponent,
+    FilterVisitorsPipe,
+    RecordComponent,
+    NotificationsComponent,
+    ConflictVisitorComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -54,6 +69,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatTableModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

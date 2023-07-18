@@ -1,0 +1,25 @@
+<app-navigation></app-navigation>
+<div class="max-w-8xl container mx-auto pt-5 mt-[15px]">
+    <h1 class="mt-16 font-bold mb-2 text-center text-lg">{{ title | titlecase }}</h1>
+    <input
+      type="text"
+      class="mb-2 border py-2 px-4 w-full"
+      placeholder="Filter visitors..."
+      [(ngModel)]="term"
+    >
+
+    <p *ngIf="loading" class="text-center text-lg">Loading...</p>
+
+    <div> <!--*ngIf="dbService.visitors"-->
+      <app-conflict-visitor
+        *ngFor="let visitor of pageSlice | filterVisitors:term; let i = index"
+        [visitor]="visitor"
+      ></app-conflict-visitor>
+    </div>
+  <mat-paginator [length] = "this.visitors.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 showFirstLastButtons
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+  </div>
