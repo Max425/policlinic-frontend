@@ -6,7 +6,7 @@
       </div>
 
     </div>
-    <ng-container *ngIf="!redactor; else formContent">
+    <ng-container *ngIf="(!redactor); else formContent">
       <div class="py-4 px-6 flex flex-col mb-2">
         <p>ФИО: {{ visitor.lastName + ' ' + visitor.firstName + ' ' + visitor.fatherName }}</p>
         <p>Пол: {{ visitor.gender }}</p>
@@ -25,19 +25,19 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Пол</mat-label>
-          <input matInput value="{{ visitor.gender }}">
+          <input [(ngModel)] = "Gender" matInput value="{{ visitor.gender }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Место рождения</mat-label>
-          <input matInput value="{{ visitor.city }}">
+          <input [(ngModel)] = "City" matInput value="{{ visitor.city }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата рождения</mat-label>
-          <input matInput value="{{ visitor.birthDate }}">
+          <input [(ngModel)] = "BirthDate" matInput value="{{ visitor.birthDate }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Национальность</mat-label>
-          <input matInput value="{{ visitor.nationality }}">
+          <input [(ngModel)] = "Nationality" matInput value="{{ visitor.nationality }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Серия и номер паспорта</mat-label>
@@ -45,7 +45,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата выдачи паспорта</mat-label>
-          <input matInput value="{{ visitor.dateIssue }}">
+          <input [(ngModel)] = "DateIssue" matInput value="{{ visitor.dateIssue }}">
         </mat-form-field>
       </form>
     </ng-template>
@@ -66,11 +66,10 @@
       >
         {{ redactor ? 'Отменить' : 'Редактировать' }}
       </button>
-      <button *ngIf="redactor" class="py-2 px-4 bg-yellow-400" (click)="save()">
+      <button *ngIf="redactor" class="py-2 px-4 bg-yellow-400" (click)="save()" (click)="redactor = !redactor">
         Сохранить
       </button>
     </div>
-
   </div>
   <div *ngIf="details">
     <div class="flex flex-col mb-2">
