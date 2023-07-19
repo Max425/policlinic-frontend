@@ -10,6 +10,8 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 import {IVisitor} from "../../../models/visitor";
+import {IRecord} from "../../../models/record";
+import {ISurvey} from "../../../models/survey";
 
 
 @Injectable({ providedIn: 'root' })
@@ -112,20 +114,15 @@ export class InteractionsWithDbApiService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
+  ): Observable<StrictHttpResponse<IRecord[]>> {
     const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetRecordsByVisitorIdIdGetPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
 
     return this.http.request(
-      rb.build({ responseType: 'text', accept: '*/*', context })
-    ).pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
+      rb.build({ responseType: 'json', accept: '*/*', context })
+    ).pipe(map((r: any) => r as StrictHttpResponse<IRecord[]>));
   }
 
   /**
@@ -139,9 +136,9 @@ export class InteractionsWithDbApiService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<IRecord[]> {
     return this.interactionsWithDbGetRecordsByVisitorIdIdGet$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<IRecord[]>) => r.body)
     );
   }
 
@@ -203,20 +200,15 @@ export class InteractionsWithDbApiService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
+  ): Observable<StrictHttpResponse<ISurvey>> {
     const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetSurveyByIdIdGetPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
 
     return this.http.request(
-      rb.build({ responseType: 'text', accept: '*/*', context })
-    ).pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
+      rb.build({ responseType: 'json', accept: '*/*', context })
+    ).pipe(map((r: any) => r as StrictHttpResponse<ISurvey>));
   }
 
   /**
@@ -230,9 +222,9 @@ export class InteractionsWithDbApiService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<ISurvey> {
     return this.interactionsWithDbGetSurveyByIdIdGet$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<ISurvey>)=> r.body)
     );
   }
 

@@ -34,6 +34,7 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { AuthInterceptor } from './auth.interceptor';
     ConflictVisitorComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

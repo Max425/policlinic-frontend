@@ -3,4 +3,5 @@ export interface IRecord {
   date: string;
   visitorId: number;
   surveyId: number;
+  operatorId: number;
 }
