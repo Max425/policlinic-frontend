@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { visitors as data } from '../../data/visitors'
 import {IVisitor} from "../../models/visitor";
 import {PageEvent} from "@angular/material/paginator";
 
@@ -10,7 +9,7 @@ import {PageEvent} from "@angular/material/paginator";
 })
 export class NotificationsComponent implements OnInit {
   title = 'Нераспознанные'
-  visitors: IVisitor[] = data
+  visitors: IVisitor[] = []
   loading = false
   term = ''
   public pageSlice = this.visitors.slice(0, 10)

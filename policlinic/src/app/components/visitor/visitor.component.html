@@ -2,50 +2,50 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <div class="py-4 px-6 flex items-center flex-col mb-2">
       <div class="mb-2">
-        <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="">
+        <img [src]="visitor.photoBase64" [alt]="visitor.id" class="">
       </div>
 
     </div>
     <ng-container *ngIf="!redactor; else formContent">
       <div class="py-4 px-6 flex flex-col mb-2">
-        <p>ФИО: {{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
-        <p>Пол: {{ visitor.Gender }}</p>
-        <p>Место рождения: {{ visitor.City }}</p>
-        <p>Дата рождения: {{ visitor.BirthDate }}</p>
-        <p>Национальность: {{ visitor.Nationality }}</p>
-        <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
-        <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
+        <p>ФИО: {{ visitor.lastName + ' ' + visitor.firstName + ' ' + visitor.fatherName }}</p>
+        <p>Пол: {{ visitor.gender }}</p>
+        <p>Место рождения: {{ visitor.city }}</p>
+        <p>Дата рождения: {{ visitor.birthDate }}</p>
+        <p>Национальность: {{ visitor.nationality }}</p>
+        <p>Серия и номер паспорта: {{ visitor.passportSeries + ' ' + visitor.passportNumber }}</p>
+        <p>Дата выдачи паспорта: {{ visitor.dateIssue }}</p>
       </div>
     </ng-container>
     <ng-template #formContent>
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>ФИО</mat-label>
-          <input matInput value="{{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}">
+          <input matInput value="{{ visitor.lastName + ' ' + visitor.firstName + ' ' + visitor.fatherName }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Пол</mat-label>
-          <input matInput value="{{ visitor.Gender }}">
+          <input matInput value="{{ visitor.gender }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Место рождения</mat-label>
-          <input matInput value="{{ visitor.City }}">
+          <input matInput value="{{ visitor.city }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата рождения</mat-label>
-          <input matInput value="{{ visitor.BirthDate }}">
+          <input matInput value="{{ visitor.birthDate }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Национальность</mat-label>
-          <input matInput value="{{ visitor.Nationality }}">
+          <input matInput value="{{ visitor.nationality }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Серия и номер паспорта</mat-label>
-          <input matInput value="{{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}">
+          <input matInput value="{{ visitor.passportSeries + ' ' + visitor.passportNumber }}">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата выдачи паспорта</mat-label>
-          <input matInput value="{{ visitor.DateIssue }}">
+          <input matInput value="{{ visitor.dateIssue }}">
         </mat-form-field>
       </form>
     </ng-template>

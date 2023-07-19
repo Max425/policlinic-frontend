@@ -8,7 +8,7 @@ export class FilterVisitorsPipe implements PipeTransform {
 
   transform(products: IVisitor[], search: string): IVisitor[] {
     if (search.length === 0) return products
-    return products.filter(p => (`${p.FirstName}${p.FatherName}${p.LastName}${p.PassportNumber}${p.PassportSeries}`)
+    return products.filter(p => (`${p.firstName}${p.fatherName}${p.lastName}${p.passportNumber}${p.passportSeries}`)
                                         .toLowerCase().includes(search.toLowerCase()))
   }
 

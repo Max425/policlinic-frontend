@@ -5,22 +5,26 @@
 <div class="mt-36">
   <h5 align="center">Добро пожаловать в DS Polyclinic</h5>
   <div class="ver">
-      <h3 align="center">Авторизация</h3>
-      <p align="center">
-          <mat-form-field appearance="fill">
-          <mat-label class="inp">Введите логин</mat-label>
-          <input matInput placeholder="">
-          <mat-icon matSuffix>visibility_off</mat-icon>
-          </mat-form-field>
-      </p>
-      <p align="center">
-          <mat-form-field appearance="fill">
-          <mat-label class="inp">Введите пароль</mat-label>
-          <input matInput placeholder="">
-          <mat-icon matSuffix>visibility_off</mat-icon>
-          </mat-form-field>
-      </p>
-      <br>
-      <button mat-raised-button routerLink="/operator">Войти</button>
-      <br><br>
+    <h3 align="center">Авторизация</h3>
+    <p align="center">
+      <mat-form-field appearance="fill">
+        <mat-label class="inp">Введите логин</mat-label>
+        <input matInput placeholder="" [(ngModel)]="login">
+        <mat-icon matSuffix>visibility_off</mat-icon>
+      </mat-form-field>
+    </p>
+    <p align="center">
+      <mat-form-field appearance="fill">
+        <mat-label class="inp">Введите пароль</mat-label>
+        <input matInput placeholder="" [(ngModel)]="password" type="password">
+        <mat-icon matSuffix>visibility_off</mat-icon>
+      </mat-form-field>
+    </p>
+    <br>
+    <button mat-raised-button (click)="onLoginButtonClick()">Войти</button>
+    <br><br>
+
+    <!-- Отображение ошибки (если есть) -->
+    <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+  </div>
 </div>

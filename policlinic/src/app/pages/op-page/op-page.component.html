@@ -10,16 +10,17 @@
 
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
-  <div> <!--*ngIf="dbService.visitors"-->
+  <div *ngIf="!loading">
     <app-visitor
       *ngFor="let visitor of pageSlice | filterVisitors:term; let i = index"
       [visitor]="visitor"
     ></app-visitor>
+    <mat-paginator [length] = "this.visitors.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   showFirstLastButtons
+                   (page)="onPageChange($event)">
+    </mat-paginator>
   </div>
-  <mat-paginator [length] = "this.visitors.length"
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 25, 100]"
-                 showFirstLastButtons
-                 (page)="onPageChange($event)">
-  </mat-paginator>
+
 </div>

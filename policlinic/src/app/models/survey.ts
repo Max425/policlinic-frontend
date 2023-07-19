@@ -1,5 +1,5 @@
 export interface ISurvey {
-  Id: number;
-  Title: string;
-  Price: number;
+  id: number;
+  title: string;
+  price: number;
 }

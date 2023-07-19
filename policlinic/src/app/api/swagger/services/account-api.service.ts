@@ -61,9 +61,9 @@ export class AccountApiService extends BaseService {
       password?: string;
     },
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<HttpResponse<any>> { // Обновленный тип возвращаемого значения
     return this.tokenPost$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<void>): HttpResponse<any> => r)
     );
   }
 

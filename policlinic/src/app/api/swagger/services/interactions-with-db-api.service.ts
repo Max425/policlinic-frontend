@@ -9,6 +9,7 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
+import {IVisitor} from "../../../models/visitor";
 
 
 @Injectable({ providedIn: 'root' })
@@ -27,37 +28,29 @@ export class InteractionsWithDbApiService extends BaseService {
    * This method doesn't expect any request body.
    */
   interactionsWithDbGetVisitorsGet$Response(
-    params?: {
-    },
+    params?: {},
     context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
-    const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetVisitorsGetPath, 'get');
+  ): Observable<StrictHttpResponse<IVisitor[]>> {
+    const rb = new RequestBuilder(
+      this.rootUrl,
+      InteractionsWithDbApiService.InteractionsWithDbGetVisitorsGetPath,
+      'get'
+    );
     if (params) {
+      // Если необходимо, добавьте обработку параметров запроса
     }
 
-    return this.http.request(
-      rb.build({ responseType: 'text', accept: '*/*', context })
-    ).pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
+    return this.http
+      .request(rb.build({ responseType: 'json', context }))
+      .pipe(map((r: any) => r as StrictHttpResponse<IVisitor[]>));
   }
 
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `interactionsWithDbGetVisitorsGet$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
   interactionsWithDbGetVisitorsGet(
-    params?: {
-    },
+    params?: {},
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<IVisitor[]> {
     return this.interactionsWithDbGetVisitorsGet$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<IVisitor[]>) => r.body)
     );
   }
 
