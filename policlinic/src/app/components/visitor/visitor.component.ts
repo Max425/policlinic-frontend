@@ -13,7 +13,6 @@ export class VisitorComponent implements OnInit {
   @Input() visitor: IVisitor
   details = false
   redactor = false
-  check = false
   records: IRecord[] = data
 
   FirstName: string;
