@@ -1,5 +1,5 @@
 <div class="py-4 px-6 border rounded">
-  <h1>{{conflict.message}}</h1>
+  <div class="warn"><h1>{{conflict.message}}</h1></div><br>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div class="py-4 px-6 flex items-center flex-col mb-2">
         <div class="mb-2">
@@ -7,7 +7,7 @@
         </div>
       </div>
       <form class="example-form">
-        <mat-form-field class="example-full-width">
+        <mat-form-field id="my-form-field" class="example-full-width">
           <mat-label>Фамилия</mat-label>
           <input matInput [(ngModel)]="conflict.conflictPerson.lastName" name="lastName" [disabled]="!create" >
         </mat-form-field>
@@ -45,29 +45,29 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата выдачи паспорта</mat-label>
-          <input  matInput [(ngModel)]="conflict.conflictPerson.dateIssue" name="dateIssue" [disabled]="!create">
+          <input matInput [(ngModel)]="conflict.conflictPerson.dateIssue" name="dateIssue" [disabled]="!create">
         </mat-form-field>
       </form>
       <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
         <button
-            class="py-2 px-4 mb-1.5 bg-blue-400"
-            [class.bg-yellow-400]="!create"
+            class="py-2 px-4 mb-1.5 bg-blue-400 text-white rounded px-4 py-2"
+            [class.bg-violet-600]="!create"
             [class.bg-blue-400]="create"
             (click)="cancel()">
           {{ create ? 'Отменить' : 'Редактировать' }}
         </button>
         <button *ngIf="!create"
-            class="py-2 px-4 mb-1.5 bg-yellow-400">
+            class="py-2 px-4 mb-1.5 bg-violet-600 text-white rounded px-4 py-2">
             Всё верно
         </button>
         <button *ngIf="!create"
-            class="py-2 px-4 mb-1.5"
-            [class.bg-yellow-400]="!del"
+            class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
+            [class.bg-violet-600]="!del"
             [class.bg-blue-400]="del"
             (click)="del = !del">
             Удалить запрос
         </button>
-        <button *ngIf="create" class="py-2 px-4 bg-yellow-400"
+        <button *ngIf="create" class="py-2 px-4 bg-violet-600 text-white rounded px-4 py-2"
             (click)="save()">
             Сохранить
         </button>

@@ -1,13 +1,11 @@
 h5 {
     font-family: 'Gill Sans', sans-serif;
     font-size: 300%;
-    color: black;
 }
 
 h2 {
     font-family: 'Gill Sans', sans-serif;
     font-size: 100%;
-    color: black;
     font-weight: 100;
 }
 
@@ -24,3 +22,8 @@ button {
     font-weight: bold;
 }
 
+#bt {
+    margin-right: 2px;
+    background-color: rgb(167, 139, 250);
+    color: white;
+}

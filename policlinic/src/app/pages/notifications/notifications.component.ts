@@ -9,7 +9,7 @@ import {IConflict} from "../../models/conflict";
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  title = 'Нераспознанные'
+  title = 'Нераспознанные Клиенты'
   conflicts: IConflict[] = data
   loading = false
   term = ''
