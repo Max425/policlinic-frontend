@@ -1,13 +1,15 @@
 <nav class="absolute top-0 right-0 px-5 left-0 h-[50px] flex justify-between items-center text-white bg-gray-500">
-  <h1 class="font-bold">DS Polyclinic</h1>
+  <span style="display: flex; align-items: center;">
+    <h1 class="font-bold" style="margin-right: 10px;">DS Polyclinic</h1>
+    <button mat-raised-button class="mr-2" routerLink="/operator">Все клиенты</button> <!-- Перемещенная кнопка -->
+  </span>
 
   <span>
-    <a routerLink="/notifications" matBadgeColor="warn" class="mr-10 demo-section" matBadge="5" matBadgeOverlap="false"><mat-icon class="d">notifications_none</mat-icon></a>
-    <button mat-raised-button class="mr-2" routerLink="/operator">Все клиенты</button>
+    <a routerLink="/notifications" matBadgeColor="warn" class="mr-10 demo-section" matBadge="5" matBadgeOverlap="false" style="margin-top: 4px;"><mat-icon class="d">notifications_none</mat-icon></a>
     <button mat-raised-button [matMenuTriggerFor]="menu">Имя оператора</button>
     <mat-menu #menu="matMenu">
       <button mat-button>Личный кабинет</button><br>
-      <button mat-button routerLink="/exit">Выйти</button>
+      <button mat-button routerLink="/login">Выйти</button>
     </mat-menu>
   </span>
 </nav>

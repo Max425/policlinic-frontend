@@ -4,7 +4,6 @@
       <div class="mb-2">
         <img [src]="visitor.photoBase64" [alt]="visitor.id" class="">
       </div>
-
     </div>
     <form class="example-form">
       <mat-form-field class="example-full-width">
@@ -61,7 +60,7 @@
         class="py-2 px-4 mb-2"
         [class.bg-yellow-400]="!redactor"
         [class.bg-blue-400]="redactor"
-        (click)="redactor = !redactor"
+        (click)="cancel()"
       >
         {{ redactor ? 'Отменить' : 'Редактировать' }}
       </button>

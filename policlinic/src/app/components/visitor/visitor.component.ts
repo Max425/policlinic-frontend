@@ -13,10 +13,13 @@ export class VisitorComponent implements OnInit {
   details = false;
   redactor = false;
   records: IRecord[] = [];
+  originalVisitor: IVisitor;
 
   constructor(public dbService: InteractionsWithDbApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.originalVisitor = { ...this.visitor };
+  }
 
   showRecords(): void {
     this.details = !this.details;
@@ -36,6 +39,7 @@ export class VisitorComponent implements OnInit {
 
   save(): void {
     this.redactor = !this.redactor;
+    this.originalVisitor = { ...this.visitor };
     this.dbService.interactionsWithDbEditVisitorPut(this.visitor)
       .subscribe(
         (response) => {
@@ -46,5 +50,9 @@ export class VisitorComponent implements OnInit {
           console.error('Error while saving visitor data:', error);
         }
       );
+  }
+  cancel(): void {
+    this.redactor = !this.redactor;
+    this.visitor = {...this.originalVisitor};
   }
 }
