@@ -32,6 +32,8 @@ import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
 import { RecordComponent } from './components/record/record.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonalaccountComponent } from './components/personalaccount/personalaccount.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -47,6 +49,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RecordComponent,
     NotificationsComponent,
     ConflictVisitorComponent,
+    PersonalaccountComponent
   ],
   imports: [
     ReactiveFormsModule,
