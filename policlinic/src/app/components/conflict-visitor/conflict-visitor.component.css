@@ -23,5 +23,10 @@ div.warn {
 }
 
 #my-form-field .mat-input-element {
-  color: green; /* Изменение цвета текста в поле ввода */
+  color: green; 
   }
+
+#pic {
+  height: 350px;
+  width: auto;
+}

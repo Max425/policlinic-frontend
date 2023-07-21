@@ -1,14 +1,19 @@
 <nav class="absolute top-0 right-0 px-5 left-0 h-[50px] flex justify-between items-center text-blue-400 bg-blue-100">
   <span style="display: flex; align-items: center;">
-    <h1 class="font-bold" style="margin-right: 10px;">DS Polyclinic</h1>
+    <button class="font-bold" routerLink="" style="margin-right: 10px;">DS Polyclinic</button>
     <button mat-flat-button id="bt" routerLink="/operator">Все клиенты</button> <!-- Перемещенная кнопка -->
   </span>
+
+  <span class="d">
+    <a routerLink="/conflict" matBadgeColor="warn" matBadgeSize="medium" class="mr-10 demo-section" matBadge="5" 
+      matBadgeOverlap="false" style="margin-top: 4px;"><mat-icon >notifications_none</mat-icon></a>
+  </span>
   <span>
-    <a routerLink="/conflict" matBadgeColor="warn" class="mr-10 demo-section" matBadge="5" matBadgeOverlap="false" style="margin-top: 4px;"><mat-icon class="d">notifications_none</mat-icon></a>
     <button id="bt" mat-flat-button [matMenuTriggerFor]="menu">Имя оператора</button>
     <mat-menu #menu="matMenu">
       <button mat-button routerLink="/personalaccount">Личный кабинет</button><br>
-      <button mat-button>Выйти</button>
+      <button mat-button routerLink="/login">Выйти</button>
     </mat-menu>
   </span>
+
 </nav>

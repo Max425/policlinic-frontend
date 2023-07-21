@@ -50,21 +50,21 @@
     <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
       <button
         class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
-        [class.bg-violet-600]="!details"
-        [class.bg-blue-400]="details"
+        [class.bg-blue-400]="!details"
+        [class.bg-blue-300]="details"
         (click)="showRecords()"
       >
         {{ details ? 'Скрыть' : 'Показать' }} записи
       </button>
       <button
         class="py-2 px-4 mb-2 text-white rounded px-4 py-2"
-        [class.bg-violet-600]="!redactor"
-        [class.bg-blue-400]="redactor"
+        [class.bg-blue-400]="!redactor"
+        [class.bg-blue-300]="redactor"
         (click)="cancel()"
       >
         {{ redactor ? 'Отменить' : 'Редактировать' }}
       </button>
-      <button *ngIf="redactor" class="py-2 px-4 bg-violet-600 text-white rounded px-4 py-2" (click)="save()">
+      <button *ngIf="redactor" class="py-2 px-4 bg-blue-400 text-white rounded px-4 py-2" (click)="save()">
         Сохранить
       </button>
     </div>

@@ -1,32 +1,9 @@
-/*.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .frame {
-    border: 5px solid silver;
-    padding: 150px;
-  }
-
-  .frame p {
-    font-size: 17px; 
-  }
-
-  .photo {
-    position: absolute;
-    top: 70px; 
-    left: 20px; 
-    width: 500px; 
-    height: auto; 
-  }*/
-
 div.ver {
-    background-color: rgba(235, 232, 240, 2.997);
+    background-color: rgba(96, 165, 250);
     margin-left: 30%;
     margin-right: 30%;
-    padding: 1%;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
     border-radius: 0 10px;
 }
@@ -35,10 +12,24 @@ div.enter {
     text-align: right;
 }
 
-.photo {
-    position: absolute;
-    top: 70px; 
-    left: 20px; 
-    width: 400px; 
-    height: auto; 
-  }
+.circle {
+  width: 200px; /* Задайте нужную ширину и высоту для круга */
+  height: 200px;
+  border-radius: 50%; /* Устанавливаем радиус границы, чтобы создать круг */
+  overflow: hidden; /* Обрезаем содержимое, чтобы оно не выходило за пределы круга */
+  margin-top: -150px ;
+  margin-left: 30px;
+}
+  
+.circle img {
+  width: 100%; /* Растягиваем картинку на всю ширину круга */
+  height: 100%; /* Автоматически подстраиваем высоту картинки */
+  object-fit:cover ;
+} 
+
+#bt {
+  margin-left: 1160px;
+  margin-top: 200px;
+  background-color: rgb(96 165 250);
+  color: white;
+}

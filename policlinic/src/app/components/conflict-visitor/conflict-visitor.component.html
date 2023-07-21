@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div class="py-4 px-6 flex items-center flex-col mb-2">
         <div class="mb-2">
-          <img [src]="conflict.conflictPerson.photoBase64">
+          <img id="pic" [src]="conflict.conflictPerson.photoBase64">
         </div>
       </div>
       <form class="example-form">
@@ -51,23 +51,23 @@
       <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
         <button
             class="py-2 px-4 mb-1.5 bg-blue-400 text-white rounded px-4 py-2"
-            [class.bg-violet-600]="!create"
-            [class.bg-blue-400]="create"
+            [class.bg-blue-400]="!create"
+            [class.bg-blue-300]="create"
             (click)="cancel()">
           {{ create ? 'Отменить' : 'Редактировать' }}
         </button>
         <button *ngIf="!create"
-            class="py-2 px-4 mb-1.5 bg-violet-600 text-white rounded px-4 py-2">
+            class="py-2 px-4 mb-1.5 bg-blue-400 text-white rounded px-4 py-2">
             Всё верно
         </button>
         <button *ngIf="!create"
             class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
-            [class.bg-violet-600]="!del"
-            [class.bg-blue-400]="del"
+            [class.bg-blue-400]="!del"
+            [class.bg-blue-300]="del"
             (click)="del = !del">
             Удалить запрос
         </button>
-        <button *ngIf="create" class="py-2 px-4 bg-violet-600 text-white rounded px-4 py-2"
+        <button *ngIf="create" class="py-2 px-4 bg-blue-400 text-white rounded px-4 py-2"
             (click)="save()">
             Сохранить
         </button>

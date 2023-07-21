@@ -7,3 +7,8 @@
 #not {
     background-color: rgb(251, 113, 133);
 }
+
+.d {
+    display: flex;
+    margin-left: auto;
+}
