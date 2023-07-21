@@ -1,0 +1,11 @@
+.record {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    color: rgb(96 165 250);
+}
+  
+.frame {
+    border: 5px solid rgb(96 165 250);
+    padding: 5px;
+}

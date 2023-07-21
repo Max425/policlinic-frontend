@@ -13,17 +13,17 @@ div.enter {
 }
 
 .circle {
-  width: 200px; /* Задайте нужную ширину и высоту для круга */
+  width: 200px; 
   height: 200px;
-  border-radius: 50%; /* Устанавливаем радиус границы, чтобы создать круг */
-  overflow: hidden; /* Обрезаем содержимое, чтобы оно не выходило за пределы круга */
+  border-radius: 50%; 
+  overflow: hidden; 
   margin-top: -150px ;
   margin-left: 30px;
 }
   
 .circle img {
-  width: 100%; /* Растягиваем картинку на всю ширину круга */
-  height: 100%; /* Автоматически подстраиваем высоту картинки */
+  width: 100%; 
+  height: 100%; 
   object-fit:cover ;
 } 
 
@@ -33,3 +33,15 @@ div.enter {
   background-color: rgb(96 165 250);
   color: white;
 }
+
+/* .record {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  color: rgb(96 165 250);
+}
+
+.frame {
+  border: 5px solid rgb(96 165 250);
+  padding: 5px;
+} */
