@@ -12,31 +12,22 @@ import {HttpClient} from "@angular/common/http";
 })
 export class NotificationsComponent implements OnInit {
   title = 'Нераспознанные Клиенты'
-  conflicts: IConflict[] = data
   loading = false
   term = ''
-  public pageSlice = this.conflicts.slice(0, 10)
+  public pageSlice = this.signalRService.data.slice(0, 10)
 
-  constructor(public signalRService: SignalRService, private http: HttpClient) {}
+  constructor(public signalRService: SignalRService) {}
 
-  ngOnInit(): void {
-    this.signalRService.startConnection();
-    this.signalRService.addTransferDataListener();
-    this.startHttpRequest();
-  }
-  private startHttpRequest = () => {
-    this.http.get('https://localhost:7014/api/conflict')
-      .subscribe(res => {
-        console.log(res);
-      })
+  ngOnInit() {
+
   }
 
   onPageChange(event: PageEvent): void {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
-    if (endIndex > this.conflicts.length) {
-      endIndex = this.conflicts.length;
+    if (endIndex > this.signalRService.data.length) {
+      endIndex = this.signalRService.data.length;
     }
-    this.pageSlice = this.conflicts.slice(startIndex, endIndex);
+    this.pageSlice = this.signalRService.data.slice(startIndex, endIndex);
   }
 }
