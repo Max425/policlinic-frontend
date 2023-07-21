@@ -3,6 +3,8 @@ import {IVisitor} from "../../models/visitor";
 import {PageEvent} from "@angular/material/paginator";
 import {conflicts as data} from "../../data/conflicts";
 import {IConflict} from "../../models/conflict";
+import {SignalRService} from "../../api/swagger/services/signal-r.service";
+import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -15,13 +17,20 @@ export class NotificationsComponent implements OnInit {
   term = ''
   public pageSlice = this.conflicts.slice(0, 10)
 
-  // constructor(public dbService: InteractionsWithDbApiService) {}
+  constructor(public signalRService: SignalRService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    // this.dbService.interactionsWithDbGetVisitorsGet().subscribe(() => {
-    //   this.loading = false
-    // })
+    this.signalRService.startConnection();
+    this.signalRService.addTransferDataListener();
+    this.startHttpRequest();
   }
+  private startHttpRequest = () => {
+    this.http.get('https://localhost:7014/api/conflict')
+      .subscribe(res => {
+        console.log(res);
+      })
+  }
+
   onPageChange(event: PageEvent): void {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
