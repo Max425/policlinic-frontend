@@ -1,0 +1,44 @@
+/*.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .frame {
+    border: 5px solid silver;
+    padding: 150px;
+  }
+
+  .frame p {
+    font-size: 17px; 
+  }
+
+  .photo {
+    position: absolute;
+    top: 70px; 
+    left: 20px; 
+    width: 500px; 
+    height: auto; 
+  }*/
+
+div.ver {
+    background-color: rgba(235, 232, 240, 2.997);
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 1%;
+    text-align: center;
+    border-radius: 0 10px;
+}
+
+div.enter {
+    text-align: right;
+}
+
+.photo {
+    position: absolute;
+    top: 70px; 
+    left: 20px; 
+    width: 400px; 
+    height: auto; 
+  }
