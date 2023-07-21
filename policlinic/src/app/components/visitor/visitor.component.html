@@ -2,75 +2,72 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <div class="py-4 px-6 flex items-center flex-col mb-2">
       <div class="mb-2">
-        <img [src]="visitor.PhotoBase64" [alt]="visitor.Id" class="">
+        <img src="https://localhost:7014/InteractionsWithDB/GetPhoto/{{visitor.photoBase64}}" [alt]="visitor.id" class="">
       </div>
-
     </div>
-    <ng-container *ngIf="!redactor; else formContent">
-      <div class="py-4 px-6 flex flex-col mb-2">
-        <p>ФИО: {{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}</p>
-        <p>Пол: {{ visitor.Gender }}</p>
-        <p>Место рождения: {{ visitor.City }}</p>
-        <p>Дата рождения: {{ visitor.BirthDate }}</p>
-        <p>Национальность: {{ visitor.Nationality }}</p>
-        <p>Серия и номер паспорта: {{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}</p>
-        <p>Дата выдачи паспорта: {{ visitor.DateIssue }}</p>
-      </div>
-    </ng-container>
-    <ng-template #formContent>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>ФИО</mat-label>
-          <input matInput value="{{ visitor.LastName + ' ' + visitor.FirstName + ' ' + visitor.FatherName }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Пол</mat-label>
-          <input matInput value="{{ visitor.Gender }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Место рождения</mat-label>
-          <input matInput value="{{ visitor.City }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Дата рождения</mat-label>
-          <input matInput value="{{ visitor.BirthDate }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Национальность</mat-label>
-          <input matInput value="{{ visitor.Nationality }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Серия и номер паспорта</mat-label>
-          <input matInput value="{{ visitor.PassportSeries + ' ' + visitor.PassportNumber }}">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Дата выдачи паспорта</mat-label>
-          <input matInput value="{{ visitor.DateIssue }}">
-        </mat-form-field>
-      </form>
-    </ng-template>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Фамилия</mat-label>
+        <input matInput [(ngModel)]="visitor.lastName" name="lastName" [disabled]="!redactor" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Имя</mat-label>
+        <input matInput [(ngModel)]="visitor.firstName" name="firstName" [disabled]="!redactor" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Отчество</mat-label>
+        <input matInput [(ngModel)]="visitor.fatherName" name="fatherName" [disabled]="!redactor" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Пол</mat-label>
+        <input matInput [(ngModel)]="visitor.gender" name="gender" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Место рождения</mat-label>
+        <input matInput [(ngModel)]="visitor.city" name="city" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Дата рождения</mat-label>
+        <input matInput [(ngModel)]="visitor.birthDate" name="birthDate" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Национальность</mat-label>
+        <input matInput [(ngModel)]="visitor.nationality" name="nationality" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Серия паспорта</mat-label>
+        <input matInput [(ngModel)]="visitor.passportSeries" name="passportSeries" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Номер паспорта</mat-label>
+        <input matInput [(ngModel)]="visitor.passportNumber" name="passportNumber" [disabled]="!redactor">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Дата выдачи паспорта</mat-label>
+        <input matInput [(ngModel)]="visitor.dateIssue" name="dateIssue" [disabled]="!redactor">
+      </mat-form-field>
+    </form>
     <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
       <button
-        class="py-2 px-4 mb-1.5"
-        [class.bg-yellow-400]="!details"
+        class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
+        [class.bg-violet-600]="!details"
         [class.bg-blue-400]="details"
-        (click)="details = !details"
+        (click)="showRecords()"
       >
         {{ details ? 'Скрыть' : 'Показать' }} записи
       </button>
       <button
-        class="py-2 px-4 mb-2"
-        [class.bg-yellow-400]="!redactor"
+        class="py-2 px-4 mb-2 text-white rounded px-4 py-2"
+        [class.bg-violet-600]="!redactor"
         [class.bg-blue-400]="redactor"
-        (click)="redactor = !redactor"
+        (click)="cancel()"
       >
         {{ redactor ? 'Отменить' : 'Редактировать' }}
       </button>
-      <button *ngIf="redactor" class="py-2 px-4 bg-yellow-400" (click)="save()">
+      <button *ngIf="redactor" class="py-2 px-4 bg-violet-600 text-white rounded px-4 py-2" (click)="save()">
         Сохранить
       </button>
     </div>
-
   </div>
   <div *ngIf="details">
     <div class="flex flex-col mb-2">

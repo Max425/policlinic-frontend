@@ -1,6 +1,6 @@
 export interface IDoctor {
-  Id: number;
-  FullName: string;
-  CabinetNumber: number;
+  id: number;
+  fullName: string;
+  cabinetNumber: number;
   SurveyId: number;
 }

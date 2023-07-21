@@ -9,6 +9,9 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
+import {IVisitor} from "../../../models/visitor";
+import {IRecord} from "../../../models/record";
+import {ISurvey} from "../../../models/survey";
 
 
 @Injectable({ providedIn: 'root' })
@@ -27,37 +30,29 @@ export class InteractionsWithDbApiService extends BaseService {
    * This method doesn't expect any request body.
    */
   interactionsWithDbGetVisitorsGet$Response(
-    params?: {
-    },
+    params?: {},
     context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
-    const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetVisitorsGetPath, 'get');
+  ): Observable<StrictHttpResponse<IVisitor[]>> {
+    const rb = new RequestBuilder(
+      this.rootUrl,
+      InteractionsWithDbApiService.InteractionsWithDbGetVisitorsGetPath,
+      'get'
+    );
     if (params) {
+      // Если необходимо, добавьте обработку параметров запроса
     }
 
-    return this.http.request(
-      rb.build({ responseType: 'text', accept: '*/*', context })
-    ).pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
+    return this.http
+      .request(rb.build({ responseType: 'json', context }))
+      .pipe(map((r: any) => r as StrictHttpResponse<IVisitor[]>));
   }
 
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `interactionsWithDbGetVisitorsGet$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
   interactionsWithDbGetVisitorsGet(
-    params?: {
-    },
+    params?: {},
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<IVisitor[]> {
     return this.interactionsWithDbGetVisitorsGet$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<IVisitor[]>) => r.body)
     );
   }
 
@@ -105,6 +100,48 @@ export class InteractionsWithDbApiService extends BaseService {
     );
   }
 
+  /** Path part for operation `interactionsWithDbGetRecordsByVisitorIdIdGet()` */
+  static readonly InteractionsWithDbGetRecordsByVisitorIdIdGetPath = '/InteractionsWithDB/GetRecordsByVisitorId/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `interactionsWithDbGetRecordsByVisitorIdIdGet()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetRecordsByVisitorIdIdGet$Response(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<IRecord[]>> {
+    const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetRecordsByVisitorIdIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: '*/*', context })
+    ).pipe(map((r: any) => r as StrictHttpResponse<IRecord[]>));
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `interactionsWithDbGetRecordsByVisitorIdIdGet$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetRecordsByVisitorIdIdGet(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<IRecord[]> {
+    return this.interactionsWithDbGetRecordsByVisitorIdIdGet$Response(params, context).pipe(
+      map((r: StrictHttpResponse<IRecord[]>) => r.body)
+    );
+  }
+
   /** Path part for operation `interactionsWithDbGetSurveyGet()` */
   static readonly InteractionsWithDbGetSurveyGetPath = '/InteractionsWithDB/GetSurvey';
 
@@ -146,6 +183,48 @@ export class InteractionsWithDbApiService extends BaseService {
   ): Observable<void> {
     return this.interactionsWithDbGetSurveyGet$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
+    );
+  }
+
+  /** Path part for operation `interactionsWithDbGetSurveyByIdIdGet()` */
+  static readonly InteractionsWithDbGetSurveyByIdIdGetPath = '/InteractionsWithDB/GetSurveyById/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `interactionsWithDbGetSurveyByIdIdGet()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetSurveyByIdIdGet$Response(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<ISurvey>> {
+    const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetSurveyByIdIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: '*/*', context })
+    ).pipe(map((r: any) => r as StrictHttpResponse<ISurvey>));
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `interactionsWithDbGetSurveyByIdIdGet$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetSurveyByIdIdGet(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<ISurvey> {
+    return this.interactionsWithDbGetSurveyByIdIdGet$Response(params, context).pipe(
+      map((r: StrictHttpResponse<ISurvey>)=> r.body)
     );
   }
 
@@ -634,6 +713,7 @@ export class InteractionsWithDbApiService extends BaseService {
    */
   interactionsWithDbEditVisitorPut$Response(
     params?: {
+      id?: number;
       firstName?: string;
       lastName?: string;
       fatherName?: string;
@@ -650,6 +730,7 @@ export class InteractionsWithDbApiService extends BaseService {
   ): Observable<StrictHttpResponse<void>> {
     const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbEditVisitorPutPath, 'put');
     if (params) {
+      rb.query('id', params.id, {});
       rb.query('firstName', params.firstName, {});
       rb.query('lastName', params.lastName, {});
       rb.query('fatherName', params.fatherName, {});
@@ -681,6 +762,7 @@ export class InteractionsWithDbApiService extends BaseService {
    */
   interactionsWithDbEditVisitorPut(
     params?: {
+      id?: number;
       firstName?: string;
       lastName?: string;
       fatherName?: string;

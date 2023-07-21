@@ -34,7 +34,9 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonalaccountComponent } from './components/personalaccount/personalaccount.component';
-
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { PersonalaccountComponent } from './components/personalaccount/personala
     PersonalaccountComponent
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -73,7 +76,13 @@ import { PersonalaccountComponent } from './components/personalaccount/personala
     MatTableModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

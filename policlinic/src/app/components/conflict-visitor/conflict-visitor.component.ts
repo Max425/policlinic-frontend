@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {IConflict} from "../../models/conflict";
+import {InteractionsWithDbApiService} from "../../api/swagger/services/interactions-with-db-api.service";
 import {IVisitor} from "../../models/visitor";
 
 @Component({
@@ -7,18 +9,21 @@ import {IVisitor} from "../../models/visitor";
   styleUrls: ['./conflict-visitor.component.css']
 })
 export class ConflictVisitorComponent implements OnInit {
-  @Input() visitor: IVisitor
+  @Input() conflict: IConflict
+  originalVisitor: IVisitor;
   create = false
-  redactor = false
   del = false
 
-  // constructor(public dbService: InteractionsWithDbApiService) {}
-  ngOnInit(): void { // запрос делать если details = true а не при инициализации
-    // this.dbService.interactionsWithDbGetRecordGet$Response().subscribe(() => {
-    //   this.loading = false
-    // })
+  constructor(public dbService: InteractionsWithDbApiService) {}
+  ngOnInit(): void {
+    this.originalVisitor = { ...this.conflict.conflictPerson }
   }
   save(): void {
-
+    this.create = !this.create;
+    this.originalVisitor = { ...this.conflict.conflictPerson }
+  }
+  cancel(): void {
+    this.create = !this.create;
+    this.conflict.conflictPerson = {...this.originalVisitor};
   }
 }

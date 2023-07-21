@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { visitors as data } from '../../data/visitors'
 import {IVisitor} from "../../models/visitor";
 import {PageEvent} from "@angular/material/paginator";
-
+import {conflicts as data} from "../../data/conflicts";
+import {IConflict} from "../../models/conflict";
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  title = 'Нераспознанные'
-  visitors: IVisitor[] = data
+  title = 'Нераспознанные Клиенты'
+  conflicts: IConflict[] = data
   loading = false
   term = ''
-  public pageSlice = this.visitors.slice(0, 10)
+  public pageSlice = this.conflicts.slice(0, 10)
 
   // constructor(public dbService: InteractionsWithDbApiService) {}
 
@@ -25,9 +25,9 @@ export class NotificationsComponent implements OnInit {
   onPageChange(event: PageEvent): void {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
-    if (endIndex > this.visitors.length) {
-      endIndex = this.visitors.length;
+    if (endIndex > this.conflicts.length) {
+      endIndex = this.conflicts.length;
     }
-    this.pageSlice = this.visitors.slice(startIndex, endIndex);
+    this.pageSlice = this.conflicts.slice(startIndex, endIndex);
   }
 }
