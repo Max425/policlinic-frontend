@@ -27,3 +27,24 @@ button {
     background-color: rgb(167, 139, 250);
     color: white;
 }
+
+/* Стилизованный input */
+.file-input {
+  display: none; /* Скрываем оригинальный input */
+}
+
+/* Стилизованный button для имитации загрузки файла */
+.upload-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(167, 139, 250);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Стилизуем текст внутри кнопки с помощью mat-icon */
+.upload-btn span {
+  margin-right: 5px;
+}
