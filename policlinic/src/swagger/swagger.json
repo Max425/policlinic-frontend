@@ -5,10 +5,44 @@
     "version": "v2"
   },
   "paths": {
+    "/api/Сonflict": {
+      "get": {
+        "tags": [
+          "Сonflict"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/InteractionsWithDB/GetVisitors": {
       "get": {
         "tags": [
           "InteractionsWithDB"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InteractionsWithDB/GetPhoto/{fileName}": {
+      "get": {
+        "tags": [
+          "InteractionsWithDB"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -115,6 +149,29 @@
       "get": {
         "tags": [
           "InteractionsWithDB"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InteractionsWithDB/GetOperatorById/{id}": {
+      "get": {
+        "tags": [
+          "InteractionsWithDB"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -878,18 +935,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/PythonWorker/GetDataFromPhotos": {
-      "get": {
-        "tags": [
-          "PythonWorker"
-        ],
         "responses": {
           "200": {
             "description": "Success"

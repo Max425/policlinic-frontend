@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {SignalRService} from "../../api/swagger/services/signal-r.service";
 import {HttpClient} from "@angular/common/http";
 
@@ -8,9 +8,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit{
-
-  constructor(public signalRService: SignalRService, private http: HttpClient) {
-  }
+  constructor(public signalRService: SignalRService,
+              private http: HttpClient) {}
 
   ngOnInit(): void {
     this.signalRService.startConnection();

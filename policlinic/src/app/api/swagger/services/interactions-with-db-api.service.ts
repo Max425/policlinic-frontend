@@ -12,6 +12,7 @@ import { RequestBuilder } from '../request-builder';
 import {IVisitor} from "../../../models/visitor";
 import {IRecord} from "../../../models/record";
 import {ISurvey} from "../../../models/survey";
+import {IOperator} from "../../../models/operator";
 
 
 @Injectable({ providedIn: 'root' })
@@ -225,6 +226,48 @@ export class InteractionsWithDbApiService extends BaseService {
   ): Observable<ISurvey> {
     return this.interactionsWithDbGetSurveyByIdIdGet$Response(params, context).pipe(
       map((r: StrictHttpResponse<ISurvey>)=> r.body)
+    );
+  }
+
+  /** Path part for operation `interactionsWithDbGetOperatorByIdIdGet()` */
+  static readonly InteractionsWithDbGetOperatorByIdIdGetPath = '/InteractionsWithDB/GetOperatorById/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `interactionsWithDbGetOperatorByIdIdGet()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetOperatorByIdIdGet$Response(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<IOperator>> {
+    const rb = new RequestBuilder(this.rootUrl, InteractionsWithDbApiService.InteractionsWithDbGetOperatorByIdIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'text', accept: '*/*', context })
+    ).pipe(map((r: any) => r as StrictHttpResponse<IOperator>));
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `interactionsWithDbGetOperatorByIdIdGet$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interactionsWithDbGetOperatorByIdIdGet(
+    params: {
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<IOperator> {
+    return this.interactionsWithDbGetOperatorByIdIdGet$Response(params, context).pipe(
+      map((r: StrictHttpResponse<IOperator>) => r.body)
     );
   }
 

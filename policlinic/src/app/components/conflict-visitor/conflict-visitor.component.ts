@@ -29,7 +29,6 @@ export class ConflictVisitorComponent implements OnInit {
   }
 
   send(): void {
-    console.log(this.conflict.conflictPerson);
     this.dbService.interactionsWithDbCreateVisitorPost(this.conflict.conflictPerson).subscribe(
       () => {
         console.log('Visitor created successfully.');
@@ -38,6 +37,10 @@ export class ConflictVisitorComponent implements OnInit {
         console.error('Error creating visitor:', error);
       }
     );
+    this.signalRService.sendData(this.conflict);
+  }
+
+  delete(): void {
     this.signalRService.sendData(this.conflict);
   }
 }

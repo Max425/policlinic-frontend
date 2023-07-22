@@ -65,7 +65,7 @@
             class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
             [class.bg-blue-400]="!del"
             [class.bg-blue-300]="del"
-            (click)="del = !del">
+            (click)="delete()">
             Удалить запрос
         </button>
         <button *ngIf="create" class="py-2 px-4 bg-blue-400 text-white rounded px-4 py-2"
