@@ -28,7 +28,7 @@
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Дата рождения</mat-label>
-        <input matInput [(ngModel)]="visitor.birthDate" name="birthDate" [disabled]="!redactor">
+        <input matInput [value]="getFormattedDate(visitor.birthDate)" name="birthDate" [disabled]="!redactor">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Национальность</mat-label>
@@ -44,7 +44,7 @@
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Дата выдачи паспорта</mat-label>
-        <input matInput [(ngModel)]="visitor.dateIssue" name="dateIssue" [disabled]="!redactor">
+        <input matInput [value]="getFormattedDate(visitor.dateIssue)" name="dateIssue" [disabled]="!redactor">
       </mat-form-field>
     </form>
     <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">

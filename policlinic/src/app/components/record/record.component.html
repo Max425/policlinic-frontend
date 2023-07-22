@@ -1,5 +1,14 @@
-<div class="record rounded px-4 py-2"><span class="frame rounded px-4 py-2 rounded-lg">
-    Услуга: {{survey.title}}</span><span class="frame rounded px-4 py-2 rounded-lg">Дата: {{record.date}}</span>
-    <span class="frame rounded px-4 py-2 rounded-lg">Стоимость: {{survey.price | currency:'RUB' }}</span>
+<div class="patient-card">
+  <div class="service-info">
+    <span class="service-label">Услуга:</span>
+    <span class="service-title">{{ survey.title }}</span>
+  </div>
+  <div class="service-info">
+    <span class="service-label">Дата:</span>
+    <span class="service-date">{{ formatDateTime(record.date) }}</span>
+  </div>
+  <div class="service-info">
+    <span class="service-label">Стоимость:</span>
+    <span class="service-price">{{ survey.price | currency:'RUB' }}</span>
+  </div>
 </div>
-<hr>

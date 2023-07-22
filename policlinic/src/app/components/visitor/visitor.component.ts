@@ -55,4 +55,9 @@ export class VisitorComponent implements OnInit {
     this.redactor = !this.redactor;
     this.visitor = {...this.originalVisitor};
   }
+
+  getFormattedDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    return date.toISOString().split('T')[0];
+  }
 }

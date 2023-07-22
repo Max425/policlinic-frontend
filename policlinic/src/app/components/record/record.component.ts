@@ -23,4 +23,8 @@ export class RecordComponent implements OnInit {
       });
   }
 
+  formatDateTime(dateTimeStr: string): string {
+    const dateTime = new Date(dateTimeStr);
+    return `${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString()}`;
+  }
 }

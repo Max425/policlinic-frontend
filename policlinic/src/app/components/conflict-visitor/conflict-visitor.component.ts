@@ -43,4 +43,9 @@ export class ConflictVisitorComponent implements OnInit {
   delete(): void {
     this.signalRService.sendData(this.conflict);
   }
+
+  getFormattedDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    return date.toISOString().split('T')[0];
+  }
 }
