@@ -22,10 +22,6 @@ div.warn {
   background-color: aqua;
 }
 
-#my-form-field .mat-input-element {
-  color: green; 
-  }
-
 #pic {
   height: 350px;
   width: auto;

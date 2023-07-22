@@ -36,6 +36,7 @@ import { PersonalaccountComponent } from './components/personalaccount/personala
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FloorComponent } from './components/floor/floor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RecordComponent,
     NotificationsComponent,
     ConflictVisitorComponent,
-    PersonalaccountComponent
+    PersonalaccountComponent,
+    FloorComponent
   ],
   imports: [
     ReactiveFormsModule,
