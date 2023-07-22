@@ -12,3 +12,7 @@
     display: flex;
     margin-left: auto;
 }
+
+.nav {
+    position: fixed;
+}
