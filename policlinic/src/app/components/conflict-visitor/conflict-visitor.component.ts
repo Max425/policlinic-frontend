@@ -29,7 +29,15 @@ export class ConflictVisitorComponent implements OnInit {
   }
 
   send(): void {
-    this.dbService.interactionsWithDbCreateVisitorPost(this.conflict.conflictPerson);
+    console.log(this.conflict.conflictPerson);
+    this.dbService.interactionsWithDbCreateVisitorPost(this.conflict.conflictPerson).subscribe(
+      () => {
+        console.log('Visitor created successfully.');
+      },
+      (error) => {
+        console.error('Error creating visitor:', error);
+      }
+    );
     this.signalRService.sendData(this.conflict);
   }
 }
