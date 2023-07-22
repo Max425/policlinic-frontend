@@ -29,7 +29,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата рождения</mat-label>
-          <input matInput [value]="getFormattedDate(conflict.conflictPerson.birthDate)" name="birthDate" [disabled]="!create">
+          <input matInput [(ngModel)]="conflict.conflictPerson.birthDate" name="birthDate" [disabled]="!create">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Национальность</mat-label>
@@ -45,7 +45,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Дата выдачи паспорта</mat-label>
-          <input matInput [value]="getFormattedDate(conflict.conflictPerson.dateIssue)" name="dateIssue" [disabled]="!create">
+          <input matInput [(ngModel)]="conflict.conflictPerson.dateIssue" name="dateIssue" [disabled]="!create">
         </mat-form-field>
       </form>
       <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
