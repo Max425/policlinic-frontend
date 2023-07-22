@@ -1,10 +1,26 @@
+<body>
 <div class="enter">
-    <button mat-raised-button routerLink="login">Войти<mat-icon>account_circle</mat-icon></button>
+  <button id="bt" mat-raised-button routerLink="login">
+    Войти<mat-icon>account_circle</mat-icon>
+  </button>
 </div>
-<div class="mt-36">
-  <h5 align="center">Добро пожаловать в DS Policlinic</h5><br><br><br>
-  <h2 align="center">Чтобы записаться на приём, загрузите паспорт</h2><br>
+
+<div class="mt-36 text-blue-400">
+  <h5 align="center">Добро пожаловать в DS Polyclinic</h5>
+  <br><br><br>
+  <h2 align="center">Чтобы записаться на приём, загрузите паспорт</h2>
+  <br>
   <div class="ctr">
-      <button click="onAdd()" mat-raised-button>Загрузить</button>
+    <label for="file-input" class="upload-btn">
+      <span>Выбрать файл</span><mat-icon>cloud_upload</mat-icon>
+    </label>
+    <input
+      type="file"
+      id="file-input"
+      class="file-input"
+      (change)="onFileSelected($event)"
+      accept=".jpg, .png, .jpeg"
+    />
   </div>
 </div>
+</body>

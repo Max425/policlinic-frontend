@@ -1,0 +1,18 @@
+#bt {
+    margin-right: 2px;
+    background-color: rgb(96 165 250);
+    color: white;
+}
+
+#not {
+    background-color: rgb(251, 113, 133);
+}
+
+.d {
+    display: flex;
+    margin-left: auto;
+}
+
+.nav {
+    position: fixed;
+}

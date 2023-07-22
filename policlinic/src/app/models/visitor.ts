@@ -1,14 +1,14 @@
 export interface IVisitor {
-  Id: number;
-  FirstName: string;
-  LastName: string;
-  FatherName: string;
-  City: string;
-  Gender: string;
-  BirthDate: string;
-  Nationality: string;
-  PassportSeries: number;
-  PassportNumber: number;
-  PhotoBase64: string;
-  DateIssue: string;
+  id: number;
+  firstName: string;
+  lastName: string;
+  fatherName: string;
+  city: string;
+  gender: string;
+  birthDate: string;
+  nationality: string;
+  passportSeries: number;
+  passportNumber: number;
+  photoBase64: string;
+  dateIssue: string;
 }

@@ -32,8 +32,11 @@ import {FilterVisitorsPipe} from "./pipes/filter-visitors.pipe";
 import { RecordComponent } from './components/record/record.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { ConflictVisitorComponent } from './components/conflict-visitor/conflict-visitor.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { PersonalaccountComponent } from './components/personalaccount/personalaccount.component';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FloorComponent } from './components/floor/floor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +48,12 @@ import { HttpClientModule } from '@angular/common/http';
     FilterVisitorsPipe,
     RecordComponent,
     NotificationsComponent,
-    ConflictVisitorComponent
+    ConflictVisitorComponent,
+    PersonalaccountComponent,
+    FloorComponent
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -71,7 +77,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

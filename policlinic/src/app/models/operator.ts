@@ -1,7 +1,7 @@
 export interface IOperator {
-  Id: number;
-  FirstName: string;
-  LastName: string;
-  FatherName: string;
-  OperatorId: number;
+  id: number;
+  firstName: string;
+  lastName: string;
+  fatherName: string;
+  operatorId: number;
 }

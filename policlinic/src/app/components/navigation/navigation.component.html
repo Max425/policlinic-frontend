@@ -1,13 +1,21 @@
-<nav class="absolute top-0 right-0 px-5 left-0 h-[50px] flex justify-between items-center text-white bg-gray-500">
-  <h1 class="font-bold">DS Polyclinic</h1>
+<nav class="nav absolute top-0 right-0 px-5 left-0 h-[50px] flex justify-between items-center text-blue-400 bg-blue-100">
+  <span style="display: flex; align-items: center;">
+    <button class="font-bold" routerLink="/operator" style="margin-right: 10px;">DS Polyclinic</button>
+    <button mat-flat-button id="bt" routerLink="/operator">Все клиенты</button>
+  </span>
 
+  <span class="d">
+    <a routerLink="/conflict" matBadgeColor="warn" matBadgeSize="medium" class="mr-10 demo-section" matBadge="{{signalRService.data.length}}"
+      matBadgeOverlap="false" style="margin-top: 4px;"><mat-icon >notifications_none</mat-icon></a>
+  </span>
   <span>
-    <a routerLink="/notifications" class="mr-2">Уведомления</a>
-    <button mat-raised-button class="mr-2" routerLink="/operator">Все клиенты</button>
-    <button mat-raised-button [matMenuTriggerFor]="menu">Имя оператора</button>
+    <button id="bt" mat-flat-button [matMenuTriggerFor]="menu">
+      <span class="material-icons">menu</span>
+    </button>
     <mat-menu #menu="matMenu">
-      <button mat-button>Личный кабинет</button><br>
-      <button mat-button>Выйти</button>
+      <button mat-button routerLink="/personalaccount">Личный кабинет</button><br>
+      <button mat-button routerLink="/login">Выйти</button>
     </mat-menu>
   </span>
+
 </nav>

@@ -7,3 +7,8 @@
 .buttons-container button {
   width: 180px;
 }
+
+#pic {
+  height: 350px;
+  width: auto;
+}
