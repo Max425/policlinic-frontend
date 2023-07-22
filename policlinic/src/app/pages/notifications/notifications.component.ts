@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IVisitor} from "../../models/visitor";
 import {PageEvent} from "@angular/material/paginator";
-import {conflicts as data} from "../../data/conflicts";
 import {IConflict} from "../../models/conflict";
 import {SignalRService} from "../../api/swagger/services/signal-r.service";
 import {HttpClient} from "@angular/common/http";

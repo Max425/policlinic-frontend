@@ -19,7 +19,16 @@ export class SignalRService {
   public addTransferDataListener = () => {
     this.hubConnection.on('transferdata', (data) => {
       this.data = data;
-      console.log(this.data);
     });
   }
+
+  public sendData = (conflict: IConflict) => {
+    this.hubConnection.invoke('Send', conflict)
+      .catch(err => console.error(err));
+  }
+  // public addSendDataListener = () => {
+  //   this.hubConnection.on('Receive', (data) => {
+  //     this.data = data;
+  //   })
+  // }
 }

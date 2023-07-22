@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IConflict} from "../../models/conflict";
-import {InteractionsWithDbApiService} from "../../api/swagger/services/interactions-with-db-api.service";
 import {IVisitor} from "../../models/visitor";
+import {SignalRService} from "../../api/swagger/services/signal-r.service";
+import {InteractionsWithDbApiService} from "../../api/swagger/services/interactions-with-db-api.service";
 
 @Component({
   selector: 'app-conflict-visitor',
@@ -14,7 +15,7 @@ export class ConflictVisitorComponent implements OnInit {
   create = false
   del = false
 
-  constructor(public dbService: InteractionsWithDbApiService) {}
+  constructor(public signalRService: SignalRService, public dbService: InteractionsWithDbApiService ) {}
   ngOnInit(): void {
     this.originalVisitor = { ...this.conflict.conflictPerson }
   }
@@ -25,5 +26,10 @@ export class ConflictVisitorComponent implements OnInit {
   cancel(): void {
     this.create = !this.create;
     this.conflict.conflictPerson = {...this.originalVisitor};
+  }
+
+  send(): void {
+    this.dbService.interactionsWithDbCreateVisitorPost(this.conflict.conflictPerson);
+    this.signalRService.sendData(this.conflict);
   }
 }
