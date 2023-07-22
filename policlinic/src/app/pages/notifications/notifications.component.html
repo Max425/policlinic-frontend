@@ -4,13 +4,13 @@
 
     <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
-    <div> <!--*ngIf="dbService.visitors"-->
+    <div *ngIf="signalRService.data">
       <app-conflict-visitor
-        *ngFor="let conflict of pageSlice; let i = index"
+        *ngFor="let conflict of signalRService.data; let i = index"
         [conflict]="conflict"
       ></app-conflict-visitor>
     </div>
-  <mat-paginator [length] = "this.conflicts.length"
+  <mat-paginator [length] = "this.signalRService.data.length"
                  [pageSize]="10"
                  [pageSizeOptions]="[5, 10, 25, 100]"
                  showFirstLastButtons

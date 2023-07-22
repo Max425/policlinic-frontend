@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {IVisitor} from "../../models/visitor";
 import {PageEvent} from "@angular/material/paginator";
-import {conflicts as data} from "../../data/conflicts";
 import {IConflict} from "../../models/conflict";
+import {SignalRService} from "../../api/swagger/services/signal-r.service";
+import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -10,24 +11,22 @@ import {IConflict} from "../../models/conflict";
 })
 export class NotificationsComponent implements OnInit {
   title = 'Нераспознанные Клиенты'
-  conflicts: IConflict[] = data
   loading = false
   term = ''
-  public pageSlice = this.conflicts.slice(0, 10)
+  public pageSlice = this.signalRService.data.slice(0, 10)
 
-  // constructor(public dbService: InteractionsWithDbApiService) {}
+  constructor(public signalRService: SignalRService) {}
 
-  ngOnInit(): void {
-    // this.dbService.interactionsWithDbGetVisitorsGet().subscribe(() => {
-    //   this.loading = false
-    // })
+  ngOnInit() {
+
   }
+
   onPageChange(event: PageEvent): void {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
-    if (endIndex > this.conflicts.length) {
-      endIndex = this.conflicts.length;
+    if (endIndex > this.signalRService.data.length) {
+      endIndex = this.signalRService.data.length;
     }
-    this.pageSlice = this.conflicts.slice(startIndex, endIndex);
+    this.pageSlice = this.signalRService.data.slice(startIndex, endIndex);
   }
 }
