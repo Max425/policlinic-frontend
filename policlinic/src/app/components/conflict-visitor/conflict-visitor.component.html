@@ -1,0 +1,77 @@
+<div class="py-4 px-6 border rounded">
+  <div class="warn"><h1>{{conflict.message}}</h1></div><br>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="py-4 px-6 flex items-center flex-col mb-2">
+        <div class="mb-2">
+          <img id="pic" src="https://localhost:7014/InteractionsWithDB/GetPhoto/{{conflict.conflictPerson.photoBase64}}">
+        </div>
+      </div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Фамилия</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.lastName" name="lastName" [disabled]="!create" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Имя</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.firstName" name="firstName" [disabled]="!create" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Отчество</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.fatherName" name="fatherName" [disabled]="!create" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Пол</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.gender" name="gender" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Место рождения</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.city" name="city" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Дата рождения</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.birthDate" name="birthDate" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Национальность</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.nationality" name="nationality" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Серия паспорта</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.passportSeries" name="passportSeries" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Номер паспорта</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.passportNumber" name="passportNumber" [disabled]="!create">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Дата выдачи паспорта</mat-label>
+          <input matInput [(ngModel)]="conflict.conflictPerson.dateIssue" name="dateIssue" [disabled]="!create">
+        </mat-form-field>
+      </form>
+      <div class="py-4 px-6 flex items-center flex-col mb-2 buttons-container">
+        <button
+            class="py-2 px-4 mb-1.5 bg-blue-400 text-white rounded px-4 py-2"
+            [class.bg-blue-400]="!create"
+            [class.bg-blue-300]="create"
+            (click)="cancel()">
+          {{ create ? 'Отменить' : 'Редактировать' }}
+        </button>
+        <button *ngIf="!create"
+            class="py-2 px-4 mb-1.5 bg-blue-400 text-white rounded px-4 py-2"
+                (click)="send()">
+            Всё верно
+        </button>
+        <button *ngIf="!create"
+            class="py-2 px-4 mb-1.5 text-white rounded px-4 py-2"
+            [class.bg-blue-400]="!del"
+            [class.bg-blue-300]="del"
+            (click)="delete()">
+            Удалить запрос
+        </button>
+        <button *ngIf="create" class="py-2 px-4 bg-blue-400 text-white rounded px-4 py-2"
+            (click)="save()">
+            Сохранить
+        </button>
+      </div>
+    </div>
+</div>

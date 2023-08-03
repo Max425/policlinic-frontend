@@ -1,0 +1,20 @@
+<app-navigation></app-navigation>
+<div class="max-w-8xl container mx-auto pt-5 mt-[15px]">
+    <h1 class="mt-16 font-bold mb-2 text-center text-lg text-blue-400">{{ title | titlecase }}</h1>
+
+    <p *ngIf="loading" class="text-center text-lg">Loading...</p>
+
+    <div *ngIf="signalRService.data">
+      <app-conflict-visitor
+        *ngFor="let conflict of signalRService.data; let i = index"
+        [conflict]="conflict"
+      ></app-conflict-visitor>
+    </div>
+  <mat-paginator [length] = "this.signalRService.data.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 showFirstLastButtons
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+  </div>
+  <app-floor></app-floor>

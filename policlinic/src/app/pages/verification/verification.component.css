@@ -1,0 +1,44 @@
+h5 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 300%;
+}
+
+h3 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 200%;
+    font-weight: 100;
+}
+
+div.ver {
+    background-color: rgb(239, 245, 255);
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 1%;
+    text-align: center;
+    border-radius: 0 10px;
+}
+
+div.enter {
+    text-align: right;
+}
+
+button {
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: bold;
+}
+
+.inp {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 80%;
+    color: rgba(0, 0, 0, 0.621);
+}
+
+#in {
+    width: 250px;
+}
+
+#bt {
+    margin-right: 2px;
+    background-color: rgb(96 165 250);
+    color: white;
+}

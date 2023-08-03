@@ -1,0 +1,50 @@
+h5 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 300%;
+}
+
+h2 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 100%;
+    font-weight: 100;
+}
+
+div.ctr {
+    text-align: center;
+}
+
+div.enter {
+    text-align: right;
+}
+
+button {
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: bold;
+}
+
+#bt {
+    margin-right: 2px;
+    background-color: rgb(96 165 250);
+    color: white;
+}
+
+/* Стилизованный input */
+.file-input {
+  display: none; /* Скрываем оригинальный input */
+}
+
+/* Стилизованный button для имитации загрузки файла */
+.upload-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(96 165 250);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Стилизуем текст внутри кнопки с помощью mat-icon */
+.upload-btn span {
+  margin-right: 5px;
+}

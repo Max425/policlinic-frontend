@@ -1,0 +1,28 @@
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-container button {
+  width: 180px;
+}
+
+div.warn {
+  background-color: rgb(251, 113, 133);
+  margin-right: 49%;
+  color: white;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 5px;
+}
+
+#inp {
+  background-color: aqua;
+}
+
+#pic {
+  height: 350px;
+  width: auto;
+}

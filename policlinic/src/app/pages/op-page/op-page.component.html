@@ -1,0 +1,28 @@
+<app-navigation></app-navigation>
+<div class="max-w-8xl container mx-auto pt-5 mt-[15px]">
+  <h1 class="mt-16 font-bold mb-2 text-center text-lg text-blue-400">{{ title | titlecase }}</h1>
+  <input
+    type="text"
+    class="mb-2 border py-2 px-4 w-full border-blue-600"
+    placeholder="Поиск посетителей..."
+    [(ngModel)]="term"
+  >
+
+  <p *ngIf="loading" class="text-center text-lg text-blue-700">Loading...</p>
+
+  <div *ngIf="!loading">
+    <app-visitor
+      *ngFor="let visitor of (term == '' ? pageSlice : visitors)  | filterVisitors:term; let i = index"
+      [visitor]="visitor"
+    ></app-visitor>
+    <mat-paginator [length] = "this.visitors.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   showFirstLastButtons
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>
+
+
+<app-floor></app-floor>

@@ -1,0 +1,28 @@
+<div class="enter">
+    <button id="bt" mat-raised-button routerLink="">Главная<mat-icon>home</mat-icon></button>
+</div>
+
+<div class="mt-36">
+  <h5 class="text-blue-400" align="center">Добро пожаловать в DS Polyclinic</h5>
+  <div class="ver">
+    <h3 class="text-blue-400" align="center">Авторизация</h3><br>
+    <p align="center">
+      <mat-form-field id="in" appearance="fill">
+        <mat-label class="inp">Введите логин</mat-label>
+        <input matInput placeholder="" [(ngModel)]="login">
+      </mat-form-field>
+    </p>
+    <p align="center">
+      <mat-form-field id="in" appearance="fill">
+        <mat-label class="inp">Введите пароль</mat-label>
+        <input matInput placeholder="" [(ngModel)]="password" type="password">
+      </mat-form-field>
+    </p>
+    <br>
+    <button id="bt" mat-raised-button (click)="onLoginButtonClick()">Войти</button>
+    <br><br>
+
+    <!-- Отображение ошибки (если есть) -->
+    <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+  </div>
+</div>
